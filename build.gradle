@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'checkstyle'
+    id 'pmd'
+}
+
+group 'com.digitalinnovationone'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+checkstyle {
+    toolVersion = '8.42'
+    showViolations = true
+    configFile = file("config/checkstyle/checkstyle.xml")
+}
+pmd {
+    ruleSetFiles = files("config/pmd/ruleset.xml")
+    toolVersion = '6.34.0'
+    ignoreFailures = true
+    consoleOutput = true
+}

@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+
+<ruleset name="Basic"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd
+http://pmd.sourceforge.net/ruleset/2.0.0 ">
+    <description>
+        The Basic ruleset contains a collection of good practices which should be followed.
+        Lista de Regras usadas retiradas da documentação
+        link: https://github.com/pmd/pmd/tree/master/pmd-java/src/main/resources
+    </description>
+
+    <!-- Exclude test classes -->
+    <exclude-pattern>.*/test/*.*</exclude-pattern>
+    <!-- Exclude target folder that may contain generated sources -->
+    <exclude-pattern>.*/build/*.*</exclude-pattern>
+
+    <!-- Rules, that have been moved into a category -->
+    <rule ref="category/java/errorprone.xml/AvoidBranchingStatementAsLastInLoop"/>
+    <rule ref="category/java/errorprone.xml/AvoidDecimalLiteralsInBigDecimalConstructor"/>
+    <rule ref="category/java/errorprone.xml/AvoidMultipleUnaryOperators"/>
+    <rule ref="category/java/errorprone.xml/AvoidUsingOctalValues"/>
+    <rule ref="category/java/errorprone.xml/BrokenNullCheck"/>
+    <rule ref="category/java/errorprone.xml/CheckSkipResult"/>
+    <rule ref="category/java/errorprone.xml/ClassCastExceptionWithToArray"/>
+    <rule ref="category/java/errorprone.xml/DontUseFloatTypeForLoopIndices"/>
+    <rule ref="category/java/errorprone.xml/JumbledIncrementer"/>
+    <rule ref="category/java/errorprone.xml/MisplacedNullCheck"/>
+    <rule ref="category/java/errorprone.xml/OverrideBothEqualsAndHashcode"/>
+    <rule ref="category/java/errorprone.xml/ReturnFromFinallyBlock"/>
+    <rule ref="category/java/errorprone.xml/UnconditionalIfStatement"/>
+
+    <rule ref="category/java/multithreading.xml/AvoidThreadGroup"/>
+    <rule ref="category/java/multithreading.xml/DontCallThreadRun"/>
+    <rule ref="category/java/multithreading.xml/DoubleCheckedLocking"/>
+
+    <rule ref="category/java/bestpractices.xml/AvoidUsingHardCodedIP"/>
+    <rule ref="category/java/bestpractices.xml/CheckResultSet"/>
+
+    <rule ref="category/java/codestyle.xml/ExtendsObject"/>
+    <rule ref="category/java/codestyle.xml/ForLoopShouldBeWhileLoop"/>
+
+    <rule ref="category/java/performance.xml/BigIntegerInstantiation"/>
+    <rule ref="category/java/performance.xml/BooleanInstantiation"/>
+
+    <rule ref="category/java/design.xml/CollapsibleIfStatements"/>
+    <rule ref="category/java/design.xml/SimplifiedTernary"/>
+
+    <!-- Rules, that have been moved into a category -->
+    <!-- These rules deal with different problems that can occur with JUnit tests. -->
+    <rule ref="category/java/errorprone.xml/JUnitSpelling"/>
+    <rule ref="category/java/errorprone.xml/JUnitStaticSuite"/>
+    <rule ref="category/java/errorprone.xml/TestClassWithoutTestCases"/>
+    <rule ref="category/java/errorprone.xml/UnnecessaryBooleanAssertion"/>
+
+    <rule ref="category/java/bestpractices.xml/JUnitAssertionsShouldIncludeMessage"/>
+    <rule ref="category/java/bestpractices.xml/JUnitTestContainsTooManyAsserts"/>
+    <rule ref="category/java/bestpractices.xml/JUnitTestsShouldIncludeAssert"/>
+    <rule ref="category/java/bestpractices.xml/UseAssertEqualsInsteadOfAssertTrue"/>
+    <rule ref="category/java/bestpractices.xml/UseAssertNullInsteadOfAssertTrue"/>
+    <rule ref="category/java/bestpractices.xml/UseAssertSameInsteadOfAssertTrue"/>
+    <rule ref="category/java/bestpractices.xml/UseAssertTrueInsteadOfAssertEquals"/>
+
+    <rule ref="category/java/design.xml/SimplifyBooleanAssertion"/>
+
+    <!-- Rules, that have been moved into a category -->
+    <!-- Rules intended to catch errors related to code comments -->
+    <rule ref="category/java/codestyle.xml/CommentDefaultAccessModifier"/>
+
+    <rule ref="category/java/documentation.xml/CommentContent"/>
+    <rule ref="category/java/documentation.xml/CommentRequired">
+        <properties>
+            <property name="methodWithOverrideCommentRequirement" value="Ignored"/>
+            <property name="accessorCommentRequirement" value="Ignored"/>
+            <property name="classCommentRequirement" value="Required"/>
+            <property name="fieldCommentRequirement" value="Ignored"/>
+            <property name="publicMethodCommentRequirement" value="Required"/>
+            <property name="protectedMethodCommentRequirement" value="Required"/>
+            <property name="enumCommentRequirement" value="Required"/>
+            <property name="serialVersionUIDCommentRequired" value="Ignored"/>
+            <property name="serialPersistentFieldsCommentRequired" value="Ignored"/>
+        </properties>
+    </rule>
+    <rule ref="category/java/documentation.xml/CommentSize"/>
+
+</ruleset>
