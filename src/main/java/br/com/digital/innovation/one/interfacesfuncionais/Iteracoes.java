@@ -1,5 +1,7 @@
 package br.com.digital.innovation.one.interfacesfuncionais;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -14,8 +16,24 @@ public class Iteracoes {
   public static void main(String[] args) {
     String[] nomes = {"Antônio", "Antônio", "Lima", "Júnior", "Instrutor", "Java"};
     Integer[] numeros = {1, 2, 3, 4, 5};
+
+    System.out.println("*** IMPRIMIR NOME FILTRADO ***");
     imprimirNomesFiltrados(nomes);
+    System.out.println("\n*** IMPRIMIR TODOS OS NOMES ***");
     imprimirTodosNomes(nomes);
+    System.out.println("\n*** IMPRIMIR O DOBRO DE CADA NUMERO ***");
+    imprimirODobroDeCadaItemDaLista(numeros);
+
+    List<String> career = new ArrayList<>();
+    career.add("Developer");
+    career.add("tester");
+    career.add("ProjectManager");
+    career.add("QualityManager");
+
+    System.out.println("\n*** IMPRIMIR CAREER FILTRADA ***");
+    career.stream()
+        .filter(work -> work.equalsIgnoreCase("Developer"))
+        .forEach(System.out::println);
   }
 
   public static void imprimirNomesFiltrados(String... nomes) {
@@ -28,8 +46,8 @@ public class Iteracoes {
 
     System.out.println("Resultado do for --> " + nomesParaImprimir);
     /*
-      <p>Stream possui vários métodos muito utilizados para iterar em coleções como filtros,
-      iterators(como o peek), min, max... verificar <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html">documentação</a> que contém todos os métodos.
+      Stream possui vários métodos muito utilizados para iterar em coleções como filtros,
+      iterators(como o peek), min, max... verificar documentação que contém todos os métodos.
      */
 
     String antonio = Stream.of(nomes)
@@ -46,6 +64,16 @@ public class Iteracoes {
 
     Stream.of(nomes)
         .forEach(nome -> System.out.println("Resultado da API Stream --> " + nome));
+    // .forEach(System.out::println);
+  }
+
+  public static void imprimirODobroDeCadaItemDaLista(Integer... numeros) {
+    for (Integer numero : numeros) {
+      System.out.println("Resultado do For --> " + numero * 2);
+    }
+    Stream.of(numeros)
+        .map(numero -> numero * 2)
+        .forEach(numero -> System.out.println("Resultado da API Stream --> " + numero));
     // .forEach(System.out::println);
   }
 }
